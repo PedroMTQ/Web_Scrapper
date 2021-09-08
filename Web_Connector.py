@@ -408,10 +408,11 @@ class Web_Connector():
 
     def allow_request(self):
         #randrange for unpredictable request times
-        if time.time()+self.get_politeness_timer()+self.get_politeness_timer()*(randrange(0,100)/100)>=self.get_request_time():
+        if time.time()-self.get_politeness_timer()-self.get_politeness_timer()*(randrange(0,100)/100)>=self.get_request_time():
             self.update_request_time()
             return True
-        else: return False
+        else:
+            return False
 
 ###################################
 ########EXCEPTION HANDLING#########
